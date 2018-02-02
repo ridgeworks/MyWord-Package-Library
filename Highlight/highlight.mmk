@@ -1,10 +1,17 @@
 @doc
 	####  Package `highlight.mmk`
 
-	[`highlight.js`] is a popular JavaScript library for syntax highlighting a large set of languages (179 at last count) with a selection of styles (colour schemes). This package defines type `highlight` which can be used to define notations for highlighting language content. `highlight.js` provides automatic language detection so different notations are usually not required to for different languages. The version of `highlight.js` included with this package supports the default set of 23 languages, but users can replace it with a custom version if the required language is not one of the 23. This package also specifies `xcode.css` as the default style.
+	[`highlight.js`] is a popular JavaScript library for syntax highlighting a large set of languages (179 at last count)
+	with a selection of styles (colour schemes). This package defines type `highlight` which can be used to define
+	notations for highlighting language content. `highlight.js` provides automatic language detection so different
+	notations are usually not required to for different languages. The version of `highlight.js` included with this
+	package supports the default set of 23 languages, but users can replace it with a custom version if the required
+	language is not one of the 23. This package also specifies `xcode.css` as the default style.
 	
 	Examples (uses `demo.mmk`):
 	demo
+		& .program .. <- <pre> highlight
+			
 		#### HTML:
 		~~~ .program
 		<!DOCTYPE HTML>
@@ -56,12 +63,11 @@
 		}
 		~~~
 		
-		&
-			.program .. <- <pre> highlight
 	Note: To render this documentation, define:
 	eg
 		metadoc :: (doc) => markit('myword', doc.replace(/(\n|\r\n?)(\t|[ ]{4})/g, '\n'))
 	and `@import` this package.
+	
 	& [`highlight.js`] <- link https://highlightjs.org/
 
 

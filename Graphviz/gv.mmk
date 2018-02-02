@@ -1,12 +1,17 @@
 @doc
 	####  Package `gv.mmk`
 
-	[`Graphviz`] uses a simple text language called `dot` to describe diagrams of abstract graphs and networks. [`viz.js`] is a JavaScript library which translates `dot` to `svg` (scalable vector graphics) an XML based vector image format for two dimensional graphics supported by most browsers.
+	[`Graphviz`] uses a simple text language called `dot` to describe diagrams of abstract graphs and networks.
+	[`viz.js`] is a JavaScript library which translates `dot` to `svg` (scalable vector graphics) an XML based vector
+	image format for two dimensional graphics supported by most browsers.
 	
-	This package  uses the "lite" version of `viz.js` to define the type `gv` whose content is `dot`. This type can be used to define custom notations or as a file type for @including external `.gv` files.
+	This package  uses the "lite" version of `viz.js` to define the type `gv` whose content is `dot`. This type can be
+	used to define custom notations or as a file type for @including external `.gv` files.
 	
 	Examples (uses `demo.mmk`):
 	demo
+		& .gv .. <- gv
+			
 		A simple graph:
 		.gv
 			digraph G { A -> B -> C; A -> C; }
@@ -21,8 +26,6 @@
 			struct1:f1 -> struct2:f0;
 			struct1:f2 -> struct3:here;
 			}
-
-		& .gv .. <- gv
 	Note: To render this documentation, define:
 	eg
 		metadoc :: (doc) => markit('myword', doc.replace(/(\n|\r\n?)(\t|[ ]{4})/g, '\n'))

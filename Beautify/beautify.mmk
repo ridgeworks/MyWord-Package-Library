@@ -1,9 +1,20 @@
 @doc
 	####  Package `beautify.mmk`
 
-	[`js-beautify.js`] is a JavaScript library that reformats and reindents JavaScript content, perhaps due to packing. The same library also supports CSS and HTML beautifiers. This package defines types `jsraw`, `cssraw`, and `htmlraw` for reformatting "raw" JavaScript, CSS, and HTML content respectively. A single notation can combine beautfiy and syntax highlighting as shown in the examples below (uses `demo.mmk`):
+	[`js-beautify.js`] is a JavaScript library that reformats and reindents JavaScript content, perhaps due to packing.
+	The same library also supports CSS and HTML beautifiers. This package defines types `jsraw`, `cssraw`, and `htmlraw`
+	for reformatting "raw" JavaScript, CSS, and HTML content respectively. A single notation can combine beautfiy and
+	syntax highlighting as shown in the examples below (uses `demo.mmk`):
 	
 	demo
+		&
+			.jsraw ..   <- <pre> jsraw
+			.cssraw ..  <- <pre> cssraw
+			.htmlraw .. <- <pre> htmlraw
+			.js ..      <- <pre> js
+			
+			js  :: (code) => markit('highlight', markit('jsraw', code))
+			
 		Raw Javascript:
 		.jsraw function indentMe() {"no, me!";}
 
@@ -15,18 +26,12 @@
 		---
 		Raw HTML:
 		.htmlraw <html><head><script src='lib/x-markup.js'></script></head><body><div class=x-markup src="SimpleExample.myw"></div></body></html>
-		&
-			.jsraw ..   <- <pre> jsraw
-			.cssraw ..  <- <pre> cssraw
-			.htmlraw .. <- <pre> htmlraw
-			.js ..      <- <pre> js
-			
-			js  :: (code) => markit('highlight', markit('jsraw', code))
 	
 	Note: To render this documentation, define:
 	eg
 		metadoc :: (doc) => markit('myword', doc.replace(/(\n|\r\n?)(\t|[ ]{4})/g, '\n'))
 	and `@import` this package.
+	
 	& [`js-beautify.js`] <- link https://github.com/beautify-web/js-beautify
 	
 @import

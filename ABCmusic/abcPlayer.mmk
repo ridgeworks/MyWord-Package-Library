@@ -1,12 +1,21 @@
 @doc
 	####  Package `abcPlayer.mmk`
 
-	This package adds a music player for content rendered by `abc.mmk`, i.e., `<myword-abc>` custom elements. Clicking on the rendered music will start and stop the player. The player requires the scripts `abc2svg-1.js` and `play-1.js` to be loaded on the main page. 
+	This package adds a music player for content rendered by `abc.mmk`, i.e., `<myword-abc>` custom elements. Clicking
+	on the rendered music will start and stop the player. The player requires the scripts `abc2svg-1.js` and `play-1.js`
+	to be loaded on the main page. 
 	
 	As of Jan. 2018, this feature does not work on Safari (and possibly others).
 	
 	Example:
 	demo
+		&
+			.abc .. <- abc
+			@require .. <- require
+			require :: (urllist) => urllist.trim().split(/\s+/)
+								.map((url) => `<script src='${url.trim()}'></script>`)
+								.join('')
+			
 		This would load the necessary scripts (path adjustment required):
 		eg
 			@require abc2svg-1.js play-1.js
@@ -23,13 +32,6 @@
 			|:g2gf gdBd|g2f2 e2d2|c2ec B2dB|c2A2 A2df|
 			g2gf g2Bd|g2f2 e2d2|c2ec B2dB|A2F2 G4:|
 		
-		&
-			.abc .. <- abc
-			@require .. <- require
-			require :: (urllist) => urllist.trim().split(/\s+/)
-								.map((url) => `<script src='${url.trim()}'></script>`)
-								.join('')
-	
 	Note: To render this documentation, define:
 	eg
 		metadoc :: (doc) => markit('myword', doc.replace(/(\n|\r\n?)(\t|[ ]{4})/g, '\n'))
