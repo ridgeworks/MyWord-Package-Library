@@ -5,6 +5,8 @@ This project contains a selection of MyWord packages, many based on third party 
 
 In many cases the documentation for any package is contained in `@doc` blocks inside the `.mmk` files. `@doc` blocks can be read as raw source, e.g., in the Github viewer, or can be usually be rendered by defining a `metadoc` transform when `@import`ing the package; consult the `.mmk` package file for details when this applies. Additional README or other documentation may also be present in the package directory. 
 
+Some packages require custom element and many current browsers provide such support natively. Alternatively, MyWord document HTML host files can be configured to use a [custom elements polyfill](https://github.com/webcomponents/custom-elements).
+ 
 Unfortunately, there's no approved way to download individual packages from this project. If the entire project is downloaded, it is recommended that any package directories of interest be moved to the local MyWord `pkg/` directory, if one exists. 
 
 There are no licensing requirements to use these packages but please respect any license conditions imposed by any included third party software. In most cases this entails nothing more than including their license agreements with any source distribution.
